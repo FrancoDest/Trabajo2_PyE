@@ -15,7 +15,7 @@ def Juego():
     
     if(ResultadoJuan == 0):
         ResultadoJuan = Tirar2Dados()
-    elif(ResultadoJuan < 4):  #En caso de que uno de los dados sea 4, el jugador tira el otro dado y se queda con su resultado como puntaje
+    elif(ResultadoJuan < 4):  #En caso de que uno de los dados sea 4 y el otro sea menor a 4, el jugador tira el otro dado y se queda con su resultado como puntaje
         ResultadoJuan = random.randint(1,6)
 
         
@@ -24,8 +24,9 @@ def Juego():
 
     if(ResultadoMaria == 0):
         ResultadoMaria = Tirar2Dados()
-
-    if(ResultadoMaria <= ResultadoJuan and ResultadoMaria < 4):#En caso de que uno de los dados sea 4, el jugador tira el otro dado y se queda con su resultado como puntaje
+    elif(ResultadoMaria < ResultadoJuan): #En caso de que uno de los dados sea 4 y maria tenga menos puntaje que juan, ella tira de nuevo ya que no tiene nada que perder
+        ResultadoMaria = random.randint(1,6)
+    elif(ResultadoMaria == ResultadoJuan and ResultadoMaria < 4):#En caso de que uno de los dados sea 4, el jugador tira el otro dado y se queda con su resultado como puntaje
         ResultadoMaria = random.randint(1,6)
     
     if(ResultadoMaria < ResultadoJuan):
