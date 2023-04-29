@@ -15,7 +15,7 @@ def Juego():
     
     if(ResultadoJuan == 0):
         ResultadoJuan = Tirar2Dados()
-    elif(ResultadoJuan < 4):     
+    elif(ResultadoJuan < 4):  #En caso de que uno de los dados sea 4, el jugador tira el otro dado y se queda con su resultado como puntaje
         ResultadoJuan = random.randint(1,6)
 
         
@@ -25,7 +25,7 @@ def Juego():
     if(ResultadoMaria == 0):
         ResultadoMaria = Tirar2Dados()
 
-    if(ResultadoMaria <= ResultadoJuan and ResultadoMaria < 4):
+    if(ResultadoMaria <= ResultadoJuan and ResultadoMaria < 4):#En caso de que uno de los dados sea 4, el jugador tira el otro dado y se queda con su resultado como puntaje
         ResultadoMaria = random.randint(1,6)
     
     if(ResultadoMaria < ResultadoJuan):
@@ -47,7 +47,7 @@ def SimulacionDeJuegos(cantDeVeces):
             MariaGana += 1
         else:
             Empate += 1
-            
+
     return (f"En {cantDeVeces} juegos Juan ganó {JuanGana} veces María ganó {MariaGana} veces y empataron {Empate} veces")
 
 print(SimulacionDeJuegos(100))
